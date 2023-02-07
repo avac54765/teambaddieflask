@@ -2,7 +2,116 @@
 {% set project = "Home" %}
 
 {% block body %}
-    <!-- Start of body content specific to page -->
+
+
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 20%;
+  padding: 0 10px;
+}
+img {  
+max-width: 50%;  
+height: auto;  
+}  
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 50px) {
+  .column {
+    /* width: 100%; */
+    display: block;
+    /* margin-bottom: 20px; */
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #da2467;
+  color: white
+}
+</style>
+</head>
+<body>
+<br> </br>
+
+<h2 style="color: white; text-align: center; font-size: 300%">Welcome to the Team Baddies Flask Page</h2>
+
+<p style="text-align: center">
+<img src="static/assets/baddieslogo.png" alt="Baddies Logo">
+</p>
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <h3>Ava Carlson</h3>
+      <p><img src="static/assets/ava.jpg" alt="Ava pic"></p>
+      <p>Backend Developer</p>
+    </div>
+  </div>
+
+  <div class="column" style="text-align: center">
+    <div class="card">
+      <h3>Alexa Carlson</h3>
+      <p><img src="static/assets/alexa.jpg" alt="Alexa pic"></p>
+      <p>Frontend Developer</p>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <h3>Lydia Cho</h3>
+      <p><img src="static/assets/lydia.jpeg" alt="Lydia pic"></p>
+      <p>Scrum Master</p>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <h3>Sri Kotturi</h3>
+      <p><img src="static/assets/sri.jpg" alt="Sri pic"></p>
+      <p>DevOps</p>
+    </div>
+  </div>
+
+  <div class="column" style="text-align: center">
+    <div class="card">
+      <h3>Nikhil Chakravarthula</h3>
+      <p><img src="static/assets/personicon.png" alt="Nikhil pic"></p>
+      <p>Frontend Developer</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
+<!-- Start of body content specific to page 
     <div class="px-5 py-5 mx-auto">
         <h1 class="text-white"><strong>Python Home Page</strong></h1>
         <div class="row">
@@ -60,5 +169,5 @@
             </div>
             
         </div>
-    </div>
+    </div> -->
 {% endblock %}
