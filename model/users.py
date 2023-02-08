@@ -38,44 +38,44 @@ class ISPE(db.Model):
     
     # FOR ISPE PAGE:
     # a getter method, extracts email from object
-    @property
-    def grade(self):
-        return self._grade
+    #@property
+    #def grade(self):
+       # return self._grade
     
     # a setter function, allows name to be updated after initial object creation
-    @grade.setter
-    def grade(self, grade):
-        self._grade = grade
+    #@grade.setter
+    #def grade(self, grade):
+        #self._grade = grade
 
  # a getter method, extracts email from object
-    @property
-    def name2(self):
-        return self._name2
+   # @property
+    #def name2(self):
+       # return self._name2
     
     # a setter function, allows name to be updated after initial object creation
-    @name2.setter
-    def name2(self, name2):
-        self._name2 = name2
+   # @name2.setter
+    #def name2(self, name2):
+     #   self._name2 = name2
     
      # a getter method, extracts email from object
-    @property
-    def duration2(self):
-        return self._duration2
+    #@property
+    #def duration2(self):
+    #    return self._duration2
     
     # a setter function, allows name to be updated after initial object creation
-    @duration2.setter
-    def duration2(self, duration2):
-        self._duration2 = duration2
+    #@duration2.setter
+    #def duration2(self, duration2):
+    #    self._duration2 = duration2
     
      # a getter method, extracts email from object
-    @property
-    def date2(self):
-        return self._date2
+    #@property
+    #def date2(self):
+     #   return self._date2
     
     # a setter function, allows name to be updated after initial object creation
-    @date2.setter
-    def date2(self, date2):
-        self._date2 = date2
+    #@date2.setter
+    #def date2(self, date2):
+     #   self._date2 = date2
 
     # Returns a string representation of the Notes object, similar to java toString()
     # returns string
@@ -135,14 +135,14 @@ class inspo(db.Model):
     
     # FOR INSPO PAGE:
     # a getter method, extracts email from object
-    @property
-    def quote(self):
-        return self._quote
+   # @property
+    #def quote(self):
+       # return self._quote
     
     # a setter function, allows name to be updated after initial object creation
-    @quote.setter
-    def quote(self, quote):
-        self._quote = quote
+    #@quote.setter
+    #def quote(self, quote):
+        #self._quote = quote
 
     
 
