@@ -29,10 +29,32 @@ class UserAPI:
             password = body.get('password')
             dob = body.get('dob')
 
+
+            # INSPO BELOW
+            quote = body.get('quote')
+            if quote is None or len(name) < 2:
+                return {'message': f'Quote is missing, or is less than 2 characters'}, 210
             ''' #1: Key code block, setup USER OBJECT '''
+
+            # FOR ISPE
+            name2 = body.get('name2')
+            duration2 = body.get('duration2')
+            date2 = body.get('date2')
+            grade = body.get('grade')
+
             uo = User(name=name, 
-                      uid=uid)
+                      uid=uid,
+                      quote=quote,
+                      name2=name2,
+                      duration2=duration2,
+                      date2=date2,
+                      grade=grade)
             
+
+            # FOR INSPO PT 2
+            #if quote is not None:
+               # q.set_quote(quote)
+
             ''' Additional garbage error checking '''
             # set password if provided
             if password is not None:
@@ -47,6 +69,7 @@ class UserAPI:
             ''' #2: Key Code block to add user to database '''
             # create user in database
             user = uo.create()
+
             # success returns json of user
             if user:
                 return jsonify(user.read())
