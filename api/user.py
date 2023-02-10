@@ -42,13 +42,21 @@ class UserAPI:
             date2 = body.get('date2')
             grade = body.get('grade')
 
+            # FOR INPUTTED WORKOUT
+            exerciseType = body.get('exerciseType')
+            sets = body.get('sets')
+            reps = body.get('reps')
+
             uo = User(name=name, 
                       uid=uid,
                       quote=quote,
                       name2=name2,
                       duration2=duration2,
                       date2=date2,
-                      grade=grade)
+                      grade=grade,
+                      exerciseType=exerciseType,
+                      sets=sets,
+                      reps=reps)
             
 
             # FOR INSPO PT 2
