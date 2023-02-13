@@ -109,7 +109,7 @@ class Inspo(db.Model):
 
 
 # Builds working data for testing
-def initUsers():
+def initInspos():
     with app.app_context():
         """Create database and tables"""
         db.init_app(app)
