@@ -22,12 +22,13 @@ class InspoAPI:
             if quote is None or len(quote) < 2:
                 return {'message': f'Quote is missing, or is less than 2 characters'}, 210
             # validate uid
-            uid = body.get('uid')
-            if uid is None or len(uid) < 2:
+            id = body.get('id')
+            if id is None or len(id) < 2:
                 return {'message': f'User ID is missing, or is less than 2 characters'}, 210
 
-            io = Inspo(quote=quote,
-                    )
+            io = Inspo(id=id,
+                       quote=quote,
+                     )
             
 
             # FOR INSPO PT 2
@@ -42,7 +43,7 @@ class InspoAPI:
             if Inspo:
                 return jsonify(Inspo.read())
             # failure returns error
-            return {'message': f'Processed {uid}, either a format error or User ID {uid} is duplicate'}, 210
+            return {'message': f'Processed {id}, either a format error or User ID {id} is duplicate'}, 210
 
     class _Read(Resource):
         def get(self):

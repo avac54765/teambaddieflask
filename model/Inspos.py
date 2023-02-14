@@ -27,6 +27,7 @@ class Inspo(db.Model):
     
     # Define the Notes schema
     # id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     quote = db.Column(db.Text, unique=False, nullable=False)
     
 
@@ -35,8 +36,8 @@ class Inspo(db.Model):
     # userID = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     # Constructor of a Notes object, initializes of instance variables within object
-    def __init__(self, quote):
-        # self.userID = id
+    def __init__(self, id, quote):
+        self.userID = id
         self.quote = quote
 
     # Defines a relationship between User record and Notes table, one-to-many (one user to many notes)
@@ -46,6 +47,17 @@ class Inspo(db.Model):
     # InputWork = db.relationship("InputWork", cascade='all, delete', backref='users', lazy=True)
 
      # FOR INSPO PAGE:
+
+     # a getter method, extracts email from object
+    @property
+    def id(self):
+        return self._id
+    
+    # a setter function, allows name to be updated after initial object creation
+    @id.setter
+    def id(self, id):
+        self._id = id
+    
     # a getter method, extracts email from object
     @property
     def quote(self):
@@ -77,7 +89,7 @@ class Inspo(db.Model):
     # returns dictionary
     def read(self):
         return {
-            # "id": self.id,
+            "id": self.id,
             # "userID": self.userID,
             "quote": self.quote
         }
@@ -109,11 +121,11 @@ def initInspos():
         db.init_app(app)
         db.create_all()
         """Tester data for table"""
-        i1 = Inspo(quote= 'You are strong')
-        i2 = Inspo(quote= 'Do not quit!')
-        i3 = Inspo(quote= 'Slay bestie')
-        i4 = Inspo(quote= 'be like super mort')
-        i5 = Inspo(quote= 'hard work beats talent!')
+        i1 = Inspo(id='alexa', quote= 'You are strong')
+        i2 = Inspo(id='ava', quote= 'Do not quit!')
+        i3 = Inspo(id='lydia', quote= 'Slay bestie')
+        i4 = Inspo(id='Sri', quote= 'be like super mort')
+        i5 = Inspo(id='Nikhil', quote= 'hard work beats talent!')
 
         Inspos = [i1, i2, i3, i4, i5]
 
@@ -128,5 +140,5 @@ def initInspos():
             except IntegrityError:
                 '''fails with bad or duplicate data'''
                 db.session.remove()
-                print(f"Records exist, duplicate email, or error")
+                print(f"Records exist, duplicate email, or error: {Inspo.id}")
     
