@@ -55,8 +55,8 @@ class ISPEAPI:
 
     class _Read(Resource):
         def get(self):
-            users = ISPE.query.all()    # read/extract all users from database
-            json_ready = [ISPE.read() for ISPE in ISPE]  # prepare output in json
+            ISPEs = ISPE.query.all()    # read/extract all users from database
+            json_ready = [ISPE.read() for ISPE in ISPEs]  # prepare output in json
             return jsonify(json_ready)  # jsonify creates Flask response object, more specific to APIs than json.dumps
 
     # building RESTapi endpoint
