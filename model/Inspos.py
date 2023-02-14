@@ -28,7 +28,7 @@ class Inspo(db.Model):
     # Define the Notes schema
     # id = db.Column(db.Integer, primary_key=True)
     id = db.Column(db.Integer, primary_key=True)
-    _quote = db.Column(db.Text, unique=False, nullable=False)
+    _quote = db.Column(db.String, unique=False, nullable=False)
     
     userID = db.Column(db.Integer, db.ForeignKey('users.id'))
 
