@@ -73,7 +73,7 @@ class ISPE(db.Model):
         return self._date2
     
     # a setter function, allows name to be updated after initial object creation
-    @id.setter
+    @date2.setter
     def date2(self, date2):
         self._date2 = date2
     
