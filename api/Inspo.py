@@ -4,11 +4,11 @@ from datetime import datetime
 
 from model.Inspos import Inspo
 
-inspo_api = Blueprint('inspo_api', __name__,
-                   url_prefix='/api/inspo')
+Inspo_api = Blueprint('Inspo_api', __name__,
+                   url_prefix='/api/Inspo')
 
 # API docs https://flask-restful.readthedocs.io/en/latest/api.html
-api = Api(inspo_api)
+api = Api(Inspo_api)
 
 class InspoAPI:        
     class _Create(Resource):
@@ -36,18 +36,18 @@ class InspoAPI:
             
             ''' #2: Key Code block to add user to database '''
             # create user in database
-            inspo = io.create()
+            Inspo = io.create()
 
             # success returns json of user
-            if inspo:
-                return jsonify(inspo.read())
+            if Inspo:
+                return jsonify(Inspo.read())
             # failure returns error
             return {'message': f'Processed {uid}, either a format error or User ID {uid} is duplicate'}, 210
 
     class _Read(Resource):
         def get(self):
-            inspos = Inspo.query.all()    # read/extract all users from database
-            json_ready = [inspo.read() for inspo in inspos]  # prepare output in json
+            Inspos = Inspo.query.all()    # read/extract all users from database
+            json_ready = [Inspo.read() for Inspo in Inspos]  # prepare output in json
             return jsonify(json_ready)  # jsonify creates Flask response object, more specific to APIs than json.dumps
 
     # building RESTapi endpoint

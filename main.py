@@ -14,7 +14,7 @@ from model.ISPEs import initISPEs
 from api.covid import covid_api # Blueprint import api definition
 from api.joke import joke_api # Blueprint import api definition
 from api.user import user_api # Blueprint import api definition
-from api.Inspo import inspo_api
+from api.Inspo import Inspo_api
 from api.ISPE import ISPE_api
 
 # setup App pages
@@ -24,7 +24,7 @@ from projects.projects import app_projects # Blueprint directory import projects
 app.register_blueprint(joke_api) # register api routes
 app.register_blueprint(covid_api) # register api routes
 app.register_blueprint(user_api) # register api routes
-app.register_blueprint(inspo_api) # register api routes
+app.register_blueprint(Inspo_api) # register api routes
 app.register_blueprint(app_projects) # register app pages
 app.register_blueprint(ISPE_api) # register api routes
 
