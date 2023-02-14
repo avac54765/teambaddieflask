@@ -32,9 +32,13 @@ class ISPEAPI:
             grade = body.get('grade')
             if duration2 is None or len(grade) > 1:
                 return {'message': f'grade is missing, or is not a single letter'}, 210
+            uid = body.get('uid')
+            if uid is None or len(uid) < 2:
+                return {'message': f'User ID is missing, or is less than 2 characters'}, 210
 
 
             io = ISPE(id=id,
+                      uid=uid,
                       name2=name2,
                       duration2=duration2,
                       date2=date2,
@@ -51,7 +55,7 @@ class ISPEAPI:
             if ISPE:
                 return jsonify(ISPE.read())
             # failure returns error
-            return {'message': f'Processed {name2}, either a format error or User ID {id} is duplicate'}, 210
+            return {'message': f'Processed {name2}, either a format error or User ID {uid} is duplicate'}, 210
 
     class _Read(Resource):
         def get(self):
