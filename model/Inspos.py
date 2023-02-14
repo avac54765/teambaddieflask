@@ -30,6 +30,7 @@ class Inspo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     quote = db.Column(db.Text, unique=False, nullable=False)
     
+    userID = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     
     # Define a relationship in Notes Schema to userID who originates the note, many-to-one (many notes to one user)
