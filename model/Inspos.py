@@ -139,11 +139,11 @@ def initInspos():
         db.init_app(app)
         db.create_all()
         """Tester data for table"""
-        i1 = Inspo(uid='alexa', quote= 'You are strong')
-        i2 = Inspo(uid='ava', quote= 'Do not quit!')
-        i3 = Inspo(uid='lydia', quote= 'Slay bestie')
-        i4 = Inspo(uid='Sri', quote= 'be like super mort')
-        i5 = Inspo(uid='Nikhil', quote= 'hard work beats talent!')
+        i1 = Inspo(id='2', uid='alexa', quote= 'You are strong')
+        i2 = Inspo(id='11', uid='ava', quote= 'Do not quit!')
+        i3 = Inspo(id='55', uid='lydia', quote= 'Slay bestie')
+        i4 = Inspo(id='33', uid='Sri', quote= 'be like super mort')
+        i5 = Inspo(id='44', uid='Nikhil', quote= 'hard work beats talent!')
 
         inspos = [i1, i2, i3, i4, i5]
 
