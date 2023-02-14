@@ -6,7 +6,7 @@ from flask import render_template  # import render_template from "public" flask 
 # import "packages" from "this" project
 from __init__ import app  # Definitions initialization
 from model.jokes import initJokes
-from model.users import initUsers
+# from model.users import initUsers
 from model.Inspos import initInspos
 from model.ISPEs import initISPEs
 
@@ -44,7 +44,7 @@ def stub():
 @app.before_first_request
 def activate_job():
     initJokes()
-    initUsers()
+    # initUsers()
     initInspos()
     initISPEs()
 
