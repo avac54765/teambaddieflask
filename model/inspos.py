@@ -26,17 +26,17 @@ class Inspo(db.Model):
     # Define the User schema with "vars" from object
     
     # Define the Notes schema
-    id = db.Column(db.Integer, primary_key=True)
+    # id = db.Column(db.Integer, primary_key=True)
     quote = db.Column(db.Text, unique=False, nullable=False)
     
 
     
     # Define a relationship in Notes Schema to userID who originates the note, many-to-one (many notes to one user)
-    userID = db.Column(db.Integer, db.ForeignKey('users.id'))
+    # userID = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     # Constructor of a Notes object, initializes of instance variables within object
-    def __init__(self, id, quote):
-        self.userID = id
+    def __init__(self, quote):
+        # self.userID = id
         self.quote = quote
 
     # Defines a relationship between User record and Notes table, one-to-many (one user to many notes)
@@ -47,8 +47,8 @@ class Inspo(db.Model):
 
 
     # constructor of a User object, initializes the instance variables within object (self)
-    def __init__(self, id, quote):
-        self.userID = id
+    def __init__(self, quote):
+        # self.userID = id
         self.quote = quote
 
      # FOR INSPO PAGE:
@@ -83,8 +83,8 @@ class Inspo(db.Model):
     # returns dictionary
     def read(self):
         return {
-            "id": self.id,
-            "userID": self.userID,
+            # "id": self.id,
+            # "userID": self.userID,
             "quote": self.quote
         }
 
@@ -115,11 +115,11 @@ def initInspos():
         db.init_app(app)
         db.create_all()
         """Tester data for table"""
-        i1 = Inspo(uid='alexa', quote= 'You are strong')
-        i2 = Inspo(uid='spiderman', quote= 'Do not quit!')
-        i3 = Inspo(uid='coolcat', quote= 'Slay bestie')
-        i4 = Inspo(uid='slayer2', quote= 'be like super mort')
-        i5 = Inspo(uid='twilightfan', quote= 'hard work beats talent!')
+        i1 = Inspo(quote= 'You are strong')
+        i2 = Inspo(quote= 'Do not quit!')
+        i3 = Inspo(quote= 'Slay bestie')
+        i4 = Inspo(quote= 'be like super mort')
+        i5 = Inspo(quote= 'hard work beats talent!')
 
         inspos = [i1, i2, i3, i4, i5]
 
@@ -134,5 +134,5 @@ def initInspos():
             except IntegrityError:
                 '''fails with bad or duplicate data'''
                 db.session.remove()
-                print(f"Records exist, duplicate email, or error: {inspo.uid}")
+                print(f"Records exist, duplicate email, or error")
     
