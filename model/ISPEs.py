@@ -175,11 +175,11 @@ def initISPEs():
         db.init_app(app)
         db.create_all()
         """Tester data for table"""
-        i1 = ISPE(name2='Alexa Carlson', uid='alexa', duration2='2', date2=date(2006, 5, 16), grade='A')
-        i2 = ISPE(name2='Ava Carlson', uid='ava')
-        i3 = ISPE(name2='Tom Holland', uid='tommy', duration2='3', date2=date(1996, 6, 1), grade='B')
-        i4 = ISPE(name2='Dylan Obrien', uid='dylan', duration2='4', date2=date(1991, 8, 26), grade='D')
-        i5 = ISPE(name2='John Mortensen', uid='jm1021', duration2='1', date2=date(1959, 10, 21), grade='A')
+        i1 = ISPE(id='33', name2='Alexa Carlson', uid='alexa', duration2='2', date2=date(2006, 5, 16), grade='A')
+        i2 = ISPE(id='24', name2='Ava Carlson', uid='ava')
+        i3 = ISPE(id='56', name2='Tom Holland', uid='tommy', duration2='3', date2=date(1996, 6, 1), grade='B')
+        i4 = ISPE(id='23', name2='Dylan Obrien', uid='dylan', duration2='4', date2=date(1991, 8, 26), grade='D')
+        i5 = ISPE(id='59', name2='John Mortensen', uid='jm1021', duration2='1', date2=date(1959, 10, 21), grade='A')
 
         ispes = [i1, i2, i3, i4, i5]
 
