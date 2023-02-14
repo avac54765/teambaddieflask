@@ -20,23 +20,23 @@ class ISPE(db.Model):
     # Define the Notes schema
     id = db.Column(db.Integer, primary_key=True)
     _uid = db.Column(db.String(255), unique=True, nullable=False)
-    _name2 = db.Column(db.Text, unique=False, nullable=False)
+    _name2 = db.Column(db.String, unique=False, nullable=False)
     _duration2 = db.Column(db.Integer, unique=False, nullable=False)
     _date2 = db.Column(db.Date)
-    _grade = db.Column(db.Text, unique=False, nullable=False)
+    _grade = db.Column(db.String, unique=False, nullable=False)
 
     
     # Define a relationship in Notes Schema to userID who originates the note, many-to-one (many notes to one user)
-    userID = db.Column(db.Integer, db.ForeignKey('users.id'))
+    # userID = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     # Constructor of a Notes object, initializes of instance variables within object
     def __init__(self, id, uid, name2, duration2, date2, grade):
         self.userID = id
         self._uid = uid
-        self.name2 = name2
-        self.duration2 = duration2
-        self.date2 = date2
-        self.grade = grade
+        self._name2 = name2
+        self._duration2 = duration2
+        self._date2 = date2
+        self._grade = grade
     
         # FOR ISPE PAGE:
     # a getter method, extracts email from object
@@ -53,14 +53,14 @@ class ISPE(db.Model):
     def is_uid(self, uid):
         return self._uid == uid
 
-    @property
-    def id(self):
-        return self._id
+    #@property
+    #def id(self):
+       # return self._id
     
     # a setter function, allows name to be updated after initial object creation
-    @id.setter
-    def id(self, id):
-        self._id = id
+    #@id.setter
+    #def id(self, id):
+       # self._id = id
     
      # a getter method, extracts email from object
     @property
