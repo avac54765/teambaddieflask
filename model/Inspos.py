@@ -21,7 +21,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 # -- b.) User represents data we want to store, something that is built on db.Model
 # -- c.) SQLAlchemy ORM is layer on top of SQLAlchemy Core, then SQLAlchemy engine, SQL
 class Inspo(db.Model):
-    __tablename__ = 'Inspo'  # table name is plural, class name is singular
+    __tablename__ = 'Inspo_data'  # table name is plural, class name is singular
 
     # Define the User schema with "vars" from object
     
