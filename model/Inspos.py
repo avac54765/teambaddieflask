@@ -45,12 +45,6 @@ class Inspo(db.Model):
     # ISPE = db.relationship("ISPE", cascade='all, delete', backref='users', lazy=True)
     # InputWork = db.relationship("InputWork", cascade='all, delete', backref='users', lazy=True)
 
-
-    # constructor of a User object, initializes the instance variables within object (self)
-    def __init__(self, quote):
-        # self.userID = id
-        self.quote = quote
-
      # FOR INSPO PAGE:
     # a getter method, extracts email from object
     @property
