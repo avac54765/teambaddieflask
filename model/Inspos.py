@@ -28,6 +28,7 @@ class Inspo(db.Model):
     # Define the Notes schema
     # id = db.Column(db.Integer, primary_key=True)
     id = db.Column(db.Integer, primary_key=True)
+    _uid = db.Column(db.String(255), unique=True, nullable=False)
     _quote = db.Column(db.String, unique=False, nullable=False)
     
     # userID = db.Column(db.Integer, db.ForeignKey('users.id'))
@@ -37,8 +38,9 @@ class Inspo(db.Model):
     # userID = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     # Constructor of a Notes object, initializes of instance variables within object
-    def __init__(self, id, quote):
+    def __init__(self, id, uid, quote):
         self.userID = id
+        self._uid = uid
         self._quote = quote
 
     # Defines a relationship between User record and Notes table, one-to-many (one user to many notes)
@@ -49,15 +51,27 @@ class Inspo(db.Model):
 
      # FOR INSPO PAGE:
 
-     # a getter method, extracts email from object
     @property
-    def id(self):
-        return self._id
+    def uid(self):
+        return self._uid
     
     # a setter function, allows name to be updated after initial object creation
-    @id.setter
-    def id(self, id):
-        self._id = id
+    @uid.setter
+    def uid(self, uid):
+        self._uid = uid
+        
+    # check if uid parameter matches user id in object, return boolean
+    def is_uid(self, uid):
+        return self._uid == uid
+     # a getter method, extracts email from object
+   # @property
+    #def id(self):
+     #   return self._id
+    
+    # a setter function, allows name to be updated after initial object creation
+   # @id.setter
+    #def id(self, id):
+     #   self._id = id
     
     # a getter method, extracts email from object
     @property
@@ -91,14 +105,17 @@ class Inspo(db.Model):
     def read(self):
         return {
             "id": self.id,
+            "uid": self.uid,
             # "userID": self.userID,
             "quote": self.quote
         }
 
     # CRUD update: updates user name, password, phone
     # returns self
-    def update(self, quote=""):
+    def update(self, uid='', quote=""):
         """only updates values with length"""
+        if len(uid) > 0:
+            self.uid = uid
         if len(quote) > 0:
             self.quote = quote
         db.session.commit()
@@ -122,11 +139,11 @@ def initInspos():
         db.init_app(app)
         db.create_all()
         """Tester data for table"""
-        i1 = Inspo(id='alexa', quote= 'You are strong')
-        i2 = Inspo(id='ava', quote= 'Do not quit!')
-        i3 = Inspo(id='lydia', quote= 'Slay bestie')
-        i4 = Inspo(id='Sri', quote= 'be like super mort')
-        i5 = Inspo(id='Nikhil', quote= 'hard work beats talent!')
+        i1 = Inspo(uid='alexa', quote= 'You are strong')
+        i2 = Inspo(uid='ava', quote= 'Do not quit!')
+        i3 = Inspo(uid='lydia', quote= 'Slay bestie')
+        i4 = Inspo(uid='Sri', quote= 'be like super mort')
+        i5 = Inspo(uid='Nikhil', quote= 'hard work beats talent!')
 
         Inspos = [i1, i2, i3, i4, i5]
 
