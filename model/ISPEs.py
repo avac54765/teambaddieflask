@@ -148,38 +148,22 @@ class ISPE(db.Model):
             "grade": self.grade
         }
 
-    def update(self, uid='', quote=""):
+    def update(self, uid='', duration2=''):
         """only updates values with length"""
         if len(uid) > 0:
             self.uid = uid
-        if len(quote) > 0:
-            self.quote = quote
-        db.session.commit()
-        return self
-
-    # CRUD delete: remove self
-    # None
-    def delete(self):
-        db.session.delete(self)
-        db.session.commit()
-        return None
-
- # CRUD update: updates user name, password, phone
-    # returns self
-    def update(self, duration2=""):
-        """only updates values with length"""
         if len(duration2) > 0:
             self.duration2 = duration2
         db.session.commit()
         return self
 
-
     # CRUD delete: remove self
     # None
     def delete(self):
         db.session.delete(self)
         db.session.commit()
         return None
+
 
 """Database Creation and Testing """
 
