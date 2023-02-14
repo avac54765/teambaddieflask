@@ -28,7 +28,7 @@ class Inspo(db.Model):
     # Define the Notes schema
     # id = db.Column(db.Integer, primary_key=True)
     id = db.Column(db.Integer, primary_key=True)
-    quote = db.Column(db.Text, unique=False, nullable=False)
+    _quote = db.Column(db.Text, unique=False, nullable=False)
     
     userID = db.Column(db.Integer, db.ForeignKey('users.id'))
 
@@ -39,7 +39,7 @@ class Inspo(db.Model):
     # Constructor of a Notes object, initializes of instance variables within object
     def __init__(self, id, quote):
         self.userID = id
-        self.quote = quote
+        self._quote = quote
 
     # Defines a relationship between User record and Notes table, one-to-many (one user to many notes)
     # workouts = db.relationship("workouts", cascade='all, delete', backref='users', lazy=True)
