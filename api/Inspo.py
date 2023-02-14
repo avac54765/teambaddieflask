@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify
 from flask_restful import Api, Resource # used for REST API building
 from datetime import datetime
 
-from model.inspos import Inspo
+from model.Inspos import Inspo
 
 inspo_api = Blueprint('inspo_api', __name__,
                    url_prefix='/api/inspo')

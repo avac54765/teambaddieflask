@@ -7,14 +7,14 @@ from flask import render_template  # import render_template from "public" flask 
 from __init__ import app  # Definitions initialization
 from model.jokes import initJokes
 from model.users import initUsers
-from model.inspos import initInspos
+from model.Inspos import initInspos
 from model.ISPEs import initISPEs
 
 # setup APIs
 from api.covid import covid_api # Blueprint import api definition
 from api.joke import joke_api # Blueprint import api definition
 from api.user import user_api # Blueprint import api definition
-from api.inspo import inspo_api
+from api.Inspo import inspo_api
 from api.ISPE import ISPE_api
 
 # setup App pages
