@@ -26,8 +26,7 @@ class InspoAPI:
             if uid is None or len(uid) < 2:
                 return {'message': f'User ID is missing, or is less than 2 characters'}, 210
 
-            io = Inspo(uid=uid,
-                      quote=quote,
+            io = Inspo(quote=quote,
                     )
             
 
