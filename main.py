@@ -9,6 +9,7 @@ from model.jokes import initJokes
 from model.Inspos import initInspos
 from model.ISPEs import initISPEs
 from model.Inputworkouts import initInputworkouts
+from model.workouts import initworkouts
 
 # setup APIs
 from api.covid import covid_api # Blueprint import api definition
@@ -16,6 +17,7 @@ from api.joke import joke_api # Blueprint import api definition
 from api.Inspo import Inspo_api
 from api.ISPE import ISPE_api
 from api.Inputworkout import Inputworkout_api
+from api.workout import workout_api
 
 # setup App pages
 from projects.projects import app_projects # Blueprint directory import projects definition
@@ -27,6 +29,7 @@ app.register_blueprint(Inspo_api) # register api routes
 app.register_blueprint(app_projects) # register app pages
 app.register_blueprint(ISPE_api) # register api routes
 app.register_blueprint(Inputworkout_api) # register api routes
+app.register_blueprint(workout_api)
 
 @app.errorhandler(404)  # catch for URL not found
 def page_not_found(e):
@@ -47,6 +50,7 @@ def activate_job():
     initInspos()
     initISPEs()
     initInputworkouts()
+    initworkouts()
 
 # this runs the application on the development server
 #if __name__ == "__main__":
