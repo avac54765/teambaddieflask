@@ -23,8 +23,6 @@ class ISPEAPI:
                 return {'message': f'Name is missing, or is less than 2 characters'}, 210
             # validate uid
             id = body.get('id')
-            if id is None or len(id) < 2:
-                return {'message': f'User ID is missing, or is less than 2 characters'}, 210
             duration2 = body.get('duration2')
             if duration2 is None or not int:
                 return {'message': f'Duration is missing, or is not an integer'}, 210
@@ -36,7 +34,7 @@ class ISPEAPI:
             if uid is None or len(uid) < 2:
                 return {'message': f'User ID is missing, or is less than 2 characters'}, 210
 
-
+            from model.ISPEs import ISPE
             io = ISPE(id=id,
                       uid=uid,
                       name2=name2,

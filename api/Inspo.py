@@ -26,30 +26,32 @@ class InspoAPI:
             uid = body.get('uid')
             if uid is None or len(uid) < 2:
                 return {'message': f'User ID is missing, or is less than 2 characters'}, 210
+            id = body.get('id')
 
-            io = Inspo(uid=uid,
+            from model.Inspos import Inspo
+            uo = Inspo(uid=uid,
                        quote=quote,
-                     )
+                       id=id)
             
 
             # FOR INSPO PT 2
             #if quote is not None:
-               # q.set_quote(quote)
+               #q.set_quote(quote)
             
             ''' #2: Key Code block to add user to database '''
             # create user in database
-            Inspo = io.create()
+            quote = uo.create()
 
             # success returns json of user
-            if Inspo:
-                return jsonify(Inspo.read())
+            if quote:
+                return jsonify(quote.read())
             # failure returns error
             return {'message': f'Processed {uid}, either a format error or User ID {uid} is duplicate'}, 210
 
     class _Read(Resource):
         def get(self):
-            Inspos = Inspo.query.all()    # read/extract all users from database
-            json_ready = [Inspo.read() for Inspo in Inspos]  # prepare output in json
+            quotes = Inspo.query.all()    # read/extract all users from database
+            json_ready = [quote.read() for quote in quotes]  # prepare output in json
             return jsonify(json_ready)  # jsonify creates Flask response object, more specific to APIs than json.dumps
 
     # building RESTapi endpoint
