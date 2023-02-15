@@ -4,7 +4,7 @@ services:
                 image: flask_teambaddies_v1
                 build: .
                 ports:
-                        - "6324:8086"
+                        - "8086:6324"
                 volumes:
                         - ./volumes:/volumes
                         - ./instance:/instance
