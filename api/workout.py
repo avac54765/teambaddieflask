@@ -40,7 +40,7 @@ class workoutAPI:
             if uid is None or len(uid) < 2:
                 return {'message': f'User ID is missing, or is less than 2 characters'}, 210
 
-
+            from model.workouts import workout
             io = workout(id=id, 
                       uid=uid,
                       fname=fname,
