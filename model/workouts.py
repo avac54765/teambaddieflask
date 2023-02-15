@@ -186,11 +186,11 @@ def initworkouts():
         db.init_app(app)
         db.create_all()
         """Tester data for table"""
-        w1 = workout(fname='Sumedh', uid='sumedh', lname='Kotturi', workouttype='swimming', date=date(2006, 5, 16), duration='2')
-        w2 = workout(fname='Srihita', uid='srihita', lname='Kotturi', workouttype='running', date=date(2006, 5, 16), duration='1')
-        w3 = workout(fname='Chandram', uid='chandram', lname='Kotturi', workouttype='walking', date=date(2006, 5, 16), duration='3')
-        w4 = workout(fname='Lalitha', uid='lalitha', lname='Chittila', workouttype='walking', date=date(2006, 5, 16), duration='1')
-        w5 = workout(fname='Shashank', uid='shashank', lname='Mahavrathajula', workouttype='Basketball', date=date(2006, 5, 16), duration='4')
+        w1 = workout(id='12', fname='Sumedh', uid='sumedh', lname='Kotturi', workouttype='swimming', date=date(2006, 5, 16), duration='2')
+        w2 = workout(id='13', fname='Srihita', uid='srihita', lname='Kotturi', workouttype='running', date=date(2006, 5, 16), duration='1')
+        w3 = workout(id='8', fname='Chandram', uid='chandram', lname='Kotturi', workouttype='walking', date=date(2006, 5, 16), duration='3')
+        w4 = workout(id='23', fname='Lalitha', uid='lalitha', lname='Chittila', workouttype='walking', date=date(2006, 5, 16), duration='1')
+        w5 = workout(id='38', fname='Shashank', uid='shashank', lname='Mahavrathajula', workouttype='Basketball', date=date(2006, 5, 16), duration='4')
 
         Workouts = [w1, w2, w3, w4, w5]
 
