@@ -15,7 +15,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 # Define the ISPE class to manage actions in 'ISPE' table,  with a relationship to 'users' table
 class workout(db.Model):
-    __tablename__ = 'ISPE'
+    __tablename__ = 'workout'
 
     # Define the Notes schema
     id = db.Column(db.Integer, primary_key=True)
