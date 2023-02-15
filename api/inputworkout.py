@@ -48,7 +48,7 @@ class InputworkoutAPI:
     
     class _Read(Resource):
         def get(self):
-            Inputworkouts = InputWork.query.all()    # read/extract all users from database
+            Inputworkouts = Inputworkout.query.all()    # read/extract all users from database
             json_ready = [Inputworkout.read() for Inputworkout in Inputworkouts]  # prepare output in json
             return jsonify(json_ready)  # jsonify creates Flask response object, more specific to APIs than json.dumps
 
