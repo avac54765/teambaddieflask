@@ -26,7 +26,10 @@ class InputworkoutAPI:
             # validate uid
             id = body.get('id')
             if id is None or len(id) < 2:
-                return {'message': f'User ID is missing, or is less than 2 characters'}, 210
+                return {'message': f'ID is missing, or is less than 2 characters'}, 210
+            uid = body.get('uid')
+            if uid is None or len(id) < 2:
+                return {'message': f'User ID is missing, or less than 2'}, 210
             sets = body.get('sets')
             if sets is None or not int:
                 return {'message': f'Input number of sets (must be integer)'}, 210
@@ -36,7 +39,9 @@ class InputworkoutAPI:
 
             from model.Inputworkouts import Inputworkout
 
-            io = Inputworkout(exerciseType=exerciseType,
+            io = Inputworkout(id=id,
+                            uis=uid,
+                            exerciseType=exerciseType,
                             sets=sets,
                             reps=reps,
                         )
