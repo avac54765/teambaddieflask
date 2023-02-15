@@ -20,9 +20,9 @@ class workout(db.Model):
     # Define the Notes schema
     id = db.Column(db.Integer, primary_key=True)
     _uid = db.Column(db.String(255), unique=True, nullable=False)
-    _fname = db.Column(db.Text, primary_key=True)
-    _lname = db.Column(db.Text, unique=False, nullable=False)
-    _workouttype = db.Column(db.Text, unique=False, nullable=False)
+    _fname = db.Column(db.String, primary_key=True)
+    _lname = db.Column(db.String, unique=False, nullable=False)
+    _workouttype = db.Column(db.String, unique=False, nullable=False)
     _duration = db.Column(db.Integer, unique=False, nullable=False)
     _date = db.Column(db.Date)
 
