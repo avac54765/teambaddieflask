@@ -1,3 +1,4 @@
+import json
 from flask import Blueprint, request, jsonify
 from flask_restful import Api, Resource # used for REST API building
 from datetime import datetime
@@ -32,6 +33,8 @@ class InputworkoutAPI:
             reps = body.get('reps')
             if reps is None or len(reps) < 0:
                 return {'message': f'Input number of repetitions (must be integer)'}, 210
+
+            from model.Inputworkouts import Inputworkout
 
             io = Inputworkout(exerciseType=exerciseType,
                             sets=sets,
