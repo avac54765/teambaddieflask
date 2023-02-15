@@ -13,13 +13,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 ## INPUTTED WORKOUT CLASS
 
 
-<<<<<<< HEAD
-class InputWork(db.Model):
-    __tablename__ = 'inputworkouts'
-=======
 class Inputworkout(db.Model):
     __tablename__ = 'Inputworkout'
->>>>>>> 50debb2 (fixes to inputworkouts and mainpy)
 
     # Define the Notes schema
     id = db.Column(db.Integer, primary_key=True)
