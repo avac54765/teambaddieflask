@@ -14,7 +14,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 
 class InputWork(db.Model):
-    __tablename__ = 'inputWorkouts'
+    __tablename__ = 'inputworkouts'
 
     # Define the Notes schema
     id = db.Column(db.Integer, primary_key=True)
