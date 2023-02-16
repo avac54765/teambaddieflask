@@ -48,7 +48,7 @@ class InspoAPI:
             if quote:
                 return jsonify(quote.read())
             # failure returns error
-            return {'message': f'Processed {uid}, either a format error or User ID {uid} is duplicate'}, 210
+            return {'message': f'Processed {quote}, either a format error, quote duplicate, or User ID {uid} is duplicate'}, 210
 
     class _Read(Resource):
         def get(self):
