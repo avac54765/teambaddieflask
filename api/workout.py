@@ -20,25 +20,26 @@ class workoutAPI:
             # validate name
             fname = body.get('fname')
             if fname is None or len(fname) < 2:
-                return {'message': f'Name is missing, or is less than 2 characters'}, 210
+                return {'message': f'Name is missing, or is less than 2 characters'}, 211
             # validate uid
             lname = body.get('lname')
             if lname is None or len(lname) < 2:
-                return {'message': f'Name is missing, or is less than 2 characters'}, 210
+                return {'message': f'Name is missing, or is less than 2 characters'}, 212
             # validate uid
             id = body.get('id')
             if id is None or len(id) < 2:
-                return {'message': f'User ID is missing, or is less than 2 characters'}, 210
+                return {'message': f'User ID is missing, or is less than 2 characters'}, 213
             duration = body.get('duration')
             if duration is None or not int:
-                return {'message': f'Duration is missing, or is not an integer'}, 210
+                return {'message': f'Duration is missing, or is not an integer'}, 214
             date = body.get('date')
             workouttype = body.get('workouttype')
             if workouttype is None or len(workouttype) > 1:
-                return {'message': f'grade is missing, or is not a single letter'}, 210
-            uid = body.get('uid')
+                return {'message': f'grade is missing, or is not a single letter'}, 215
+             # uid = body.get('uid')
+            uid = str(datetime.now())
             if uid is None or len(uid) < 2:
-                return {'message': f'User ID is missing, or is less than 2 characters'}, 210
+                return {'message': f'User ID is missing, or is less than 2 characters'}, 216
 
             from model.workouts import workout
             io = workout(id=id, 
@@ -60,7 +61,7 @@ class workoutAPI:
             if workout:
                 return jsonify(workout.read())
             # failure returns error
-            return {'message': f'Processed {fname}, either a format error or User ID {uid} is duplicate'}, 210
+            return {'message': f'Processed {fname}, either a format error or User ID {uid} is duplicate'}, 217
 
     class _Read(Resource):
         def get(self):

@@ -24,7 +24,7 @@ class workout(db.Model):
     _lname = db.Column(db.String, unique=False, nullable=False)
     _workouttype = db.Column(db.String, unique=False, nullable=False)
     _duration = db.Column(db.Integer, unique=False, nullable=False)
-    _date = db.Column(db.Date)
+    _date = db.Column(db.String)
 
     
     # Define a relationship in Notes Schema to userID who originates the note, many-to-one (many notes to one user)
