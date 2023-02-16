@@ -40,7 +40,7 @@ class InputworkoutAPI:
             from model.Inputworkouts import Inputworkout
 
             io = Inputworkout(id=id,
-                            uis=uid,
+                            uid=uid,
                             exerciseType=exerciseType,
                             sets=sets,
                             reps=reps,
