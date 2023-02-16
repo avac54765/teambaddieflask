@@ -26,16 +26,16 @@ class InputworkoutAPI:
             # validate uid
             id = body.get('id')
             if id is None or len(id) < 2:
-                return {'message': f'ID is missing, or is less than 2 characters'}, 210
+                return {'message': f'ID is missing, or is less than 2 characters'}, 211
             uid = body.get('uid')
             if uid is None or len(id) < 2:
-                return {'message': f'User ID is missing, or less than 2'}, 210
+                return {'message': f'User ID is missing, or less than 2'}, 212
             sets = body.get('sets')
             if sets is None or not int:
-                return {'message': f'Input number of sets (must be integer)'}, 210
+                return {'message': f'Input number of sets (must be integer)'}, 213
             reps = body.get('reps')
             if reps is None or len(reps) < 0:
-                return {'message': f'Input number of repetitions (must be integer)'}, 210
+                return {'message': f'Input number of repetitions (must be integer)'}, 214
 
             from model.Inputworkouts import Inputworkout
 
@@ -52,7 +52,7 @@ class InputworkoutAPI:
             if Inputworkout:
                 return jsonify(Inputworkout.read())
             # failure returns error
-            return {'message': f'Processed {exerciseType}, a format error'}, 210
+            return {'message': f'Processed {exerciseType}, a format error'}, 215
     
     class _Read(Resource):
         def get(self):
