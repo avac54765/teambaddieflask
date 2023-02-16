@@ -22,13 +22,13 @@ class ISPE(db.Model):
     _uid = db.Column(db.String(255), unique=True, nullable=False)
     _name2 = db.Column(db.String, unique=False, nullable=False)
     _duration2 = db.Column(db.Integer, unique=False, nullable=False)
-    _date2 = db.Column(db.Date)
+    _date2 = db.Column(db.String)
     _grade = db.Column(db.String, unique=False, nullable=False)
 
     
     # Define a relationship in Notes Schema to userID who originates the note, many-to-one (many notes to one user)
     # userID = db.Column(db.Integer, db.ForeignKey('users.id'))
-
+    
     # Constructor of a Notes object, initializes of instance variables within object
     def __init__(self, id, uid, name2, duration2, date2, grade):
         self.userID = id

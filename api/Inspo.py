@@ -23,9 +23,11 @@ class InspoAPI:
             if quote is None or len(quote) < 2:
                 return {'message': f'Quote is missing, or is less than 2 characters'}, 210
             # validate uid
-            uid = body.get('uid')
+           # uid = body.get('uid')
+             # uid = body.get('uid')
+            uid = str(datetime.now()) # temporary UID that is unique to fill garbage data
             if uid is None or len(uid) < 2:
-                return {'message': f'User ID is missing, or is less than 2 characters'}, 210
+                return {'message': f'User ID is missing, or is less than 2 characters'}, 214
             id = body.get('id')
 
             from model.Inspos import Inspo
@@ -46,7 +48,7 @@ class InspoAPI:
             if quote:
                 return jsonify(quote.read())
             # failure returns error
-            return {'message': f'Processed {uid}, either a format error or User ID {uid} is duplicate'}, 210
+            return {'message': f'Processed {quote}, either a format error, quote duplicate, or User ID {uid} is duplicate'}, 210
 
     class _Read(Resource):
         def get(self):
