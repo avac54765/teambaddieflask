@@ -33,12 +33,12 @@ class workout(db.Model):
     # Constructor of a Notes object, initializes of instance variables within object
     def __init__(self, uid, id, fname, lname, workouttype, duration, date):
         self.userID = id
-        self.uid = uid
-        self.fname = fname
-        self.lname = lname
-        self.workouttype = workouttype
-        self.duration = duration
-        self.date = date
+        self._uid = uid
+        self._fname = fname
+        self._lname = lname
+        self._workouttype = workouttype
+        self._duration = duration
+        self._date = date
     
         # FOR ISPE PAGE:
     # a getter method, extracts email from object
