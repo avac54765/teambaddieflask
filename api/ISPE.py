@@ -17,22 +17,23 @@ class ISPEAPI:
             body = request.get_json()
             
             ''' Avoid garbage in, error checking '''
-            # validate name
+            # validate nameh
             name2 = body.get('name2')
             if name2 is None or len(name2) < 2:
-                return {'message': f'Name is missing, or is less than 2 characters'}, 210
+                return {'message': f'Name is missing, or is less than 2 characters'}, 211
             # validate uid
             id = body.get('id')
             duration2 = body.get('duration2')
             if duration2 is None or not int:
-                return {'message': f'Duration is missing, or is not an integer'}, 210
+                return {'message': f'Duration is missing, or is not an integer'}, 212
             date2 = body.get('date2')
             grade = body.get('grade')
             if duration2 is None or len(grade) > 1:
-                return {'message': f'grade is missing, or is not a single letter'}, 210
-            uid = body.get('uid')
+                return {'message': f'grade is missing, or is not a single letter'}, 213
+            # uid = body.get('uid')
+            uid = str(datetime.now()) # temporary UID that is unique to fill garbage data
             if uid is None or len(uid) < 2:
-                return {'message': f'User ID is missing, or is less than 2 characters'}, 210
+                return {'message': f'User ID is missing, or is less than 2 characters'}, 214
 
             from model.ISPEs import ISPE
             io = ISPE(id=id,
@@ -53,7 +54,7 @@ class ISPEAPI:
             if ISPE:
                 return jsonify(ISPE.read())
             # failure returns error
-            return {'message': f'Processed {name2}, either a format error or User ID {uid} is duplicate'}, 210
+            return {'message': f'Processed {name2}, either a format error or User ID {uid} is duplicate'}, 215
 
     class _Read(Resource):
         def get(self):
