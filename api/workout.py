@@ -27,8 +27,7 @@ class workoutAPI:
                 return {'message': f'Name is missing, or is less than 2 characters'}, 212
             # validate uid
             id = body.get('id')
-            if id is None or len(id) < 2:
-                return {'message': f'User ID is missing, or is less than 2 characters'}, 213
+            
             duration = body.get('duration')
             if duration is None or not int:
                 return {'message': f'Duration is missing, or is not an integer'}, 214
@@ -42,20 +41,19 @@ class workoutAPI:
                 return {'message': f'User ID is missing, or is less than 2 characters'}, 216
 
             from model.workouts import workout
-            io = workout(id=id, 
+            uo = workout(id=id, 
                       uid=uid,
                       fname=fname,
                       lname=lname,
                       date=date,
                       duration=duration,
-                      workouttype=workouttype
-                    )
+                      workouttype=workouttype)
             
 
             
             ''' #2: Key Code block to add user to database '''
             # create user in database
-            workout = io.create()
+            workout = uo.create()
 
             # success returns json of user
             if workout:
