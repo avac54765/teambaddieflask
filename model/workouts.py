@@ -55,14 +55,14 @@ class workout(db.Model):
     def is_uid(self, uid):
         return self._uid == uid
 
-    @property
-    def id(self):
-        return self._id
+    # @property
+    # def id(self):
+        # return self._id
     
     # a setter function, allows name to be updated after initial object creation
-    @id.setter
-    def id(self, id):
-        self._id = id
+    # @id.setter
+    # def id(self, id):
+        # self._id = id
 
     @property
     def fname(self):
