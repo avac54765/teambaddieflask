@@ -31,7 +31,7 @@ class workout(db.Model):
     # userID = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     # Constructor of a Notes object, initializes of instance variables within object
-    def __init__(self, uid, id, fname, lname, workouttype, duration, date):
+    def __init__(self, id, uid, fname, lname, workouttype, duration, date):
         self.userID = id
         self._uid = uid
         self._fname = fname
