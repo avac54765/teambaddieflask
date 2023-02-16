@@ -23,9 +23,11 @@ class InspoAPI:
             if quote is None or len(quote) < 2:
                 return {'message': f'Quote is missing, or is less than 2 characters'}, 210
             # validate uid
-            uid = body.get('uid')
+           # uid = body.get('uid')
+             # uid = body.get('uid')
+            uid = str(datetime.now()) # temporary UID that is unique to fill garbage data
             if uid is None or len(uid) < 2:
-                return {'message': f'User ID is missing, or is less than 2 characters'}, 210
+                return {'message': f'User ID is missing, or is less than 2 characters'}, 214
             id = body.get('id')
 
             from model.Inspos import Inspo
