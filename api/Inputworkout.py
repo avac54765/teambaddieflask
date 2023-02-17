@@ -25,11 +25,10 @@ class InputworkoutAPI:
                 return {'message': f'Input Exercise Type'}, 210
             # validate uid
             id = body.get('id')
-            if id is None or len(id) < 2:
-                return {'message': f'ID is missing, or is less than 2 characters'}, 211
-            uid = body.get('uid')
-            if uid is None or len(id) < 2:
-                return {'message': f'User ID is missing, or less than 2'}, 212
+            uid = str(datetime.now()) # temporary UID that is unique to fill garbage data
+            if uid is None or len(uid) < 2:
+                return {'message': f'User ID is missing, or is less than 2 characters'}, 212
+
             sets = body.get('sets')
             if sets is None or not int:
                 return {'message': f'Input number of sets (must be integer)'}, 213
@@ -52,7 +51,7 @@ class InputworkoutAPI:
             if Inputworkout:
                 return jsonify(Inputworkout.read())
             # failure returns error
-            return {'message': f'Processed {exerciseType}, a format error'}, 215
+            return {'message': f'Processed {exerciseType}, a format error or User ID {uid} is duplicate'}, 215
     
     class _Read(Resource):
         def get(self):
