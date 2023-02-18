@@ -183,7 +183,6 @@ class workout(db.Model):
 def initworkouts():
     with app.app_context():
         """Create database and tables"""
-        db.init_app(app)
         db.create_all()
         """Tester data for table"""
         w1 = workout(id='12', fname='Sumedh', uid='sumedh', lname='Kotturi', workouttype='swimming', date=date(2006, 5, 16), duration='2')

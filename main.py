@@ -4,7 +4,7 @@ import threading
 from flask import render_template  # import render_template from "public" flask libraries
 
 # import "packages" from "this" project
-from __init__ import app  # Definitions initialization
+from __init__ import app, db  # Definitions initialization
 from model.jokes import initJokes
 from model.Inspos import initInspos
 from model.ISPEs import initISPEs
@@ -46,6 +46,7 @@ def stub():
 
 @app.before_first_request
 def activate_job():
+    db.init_app(app)
     initJokes()
     initInspos()
     initISPEs()

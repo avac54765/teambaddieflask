@@ -130,7 +130,6 @@ class Inputworkout(db.Model):
 def initInputworkouts():
     with app.app_context():
         """Create database and tables"""
-        db.init_app(app)
         db.create_all()
         """Tester data for table"""
         i1 = Inputworkout(exerciseType='Frenchies', id='alexa', uid='alexa1', sets='2', reps='3')
