@@ -20,8 +20,8 @@ class workout(db.Model):
     # Define the Notes schema
     id = db.Column(db.Integer, primary_key=True)
     _uid = db.Column(db.String(255), unique=True, nullable=False)
-    _fname = db.Column(db.String, unique=False, nullable=False)
-    _lname = db.Column(db.String, unique=False, nullable=False)
+    _first = db.Column(db.String, unique=False, nullable=False)
+    _last = db.Column(db.String, unique=False, nullable=False)
     _workouttype = db.Column(db.String, unique=False, nullable=False)
     _duration = db.Column(db.Integer, unique=False, nullable=False)
     _date = db.Column(db.String)
@@ -31,11 +31,11 @@ class workout(db.Model):
     # userID = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     # Constructor of a Notes object, initializes of instance variables within object
-    def __init__(self, id, uid, fname, lname, workouttype, duration, date):
+    def __init__(self, id, uid, first, last, workouttype, duration, date):
         self.userID = id
         self._uid = uid
-        self._fname = fname
-        self._lname = lname
+        self._first = first
+        self._last = last
         self._workouttype = workouttype
         self._duration = duration
         self._date = date
@@ -65,23 +65,23 @@ class workout(db.Model):
         # self._id = id
 
     @property
-    def fname(self):
-        return self._fname
+    def first(self):
+        return self._first
     
     # a setter function, allows name to be updated after initial object creation
-    @fname.setter
-    def fname(self, fname):
-        self._fname = fname
+    @first.setter
+    def fname(self, first):
+        self._first = first
     
      # a getter method, extracts email from object
     @property
-    def lname(self):
-        return self._lname
+    def last(self):
+        return self._last
     
     # a setter function, allows name to be updated after initial object creation
-    @lname.setter
-    def lname(self, lname):
-        self._lname = lname
+    @last.setter
+    def lname(self, last):
+        self._last = last
 
      # a getter method, extracts email from object
     @property
@@ -153,8 +153,8 @@ class workout(db.Model):
         return {
             "id": self.id,
             "uid": self.uid,
-            "first name": self.fname,
-            "last name": self.lname,
+            "first name": self.first,
+            "last name": self.last,
             "type of workout": self.workouttype,
             "duration": self.duration,
             "date": self.date
@@ -186,11 +186,11 @@ def initworkouts():
         db.init_app(app)
         db.create_all()
         """Tester data for table"""
-        w1 = workout(id='12', fname='Sumedh', uid='sumedh', lname='Kotturi', workouttype='swimming', date=date(2006, 5, 16), duration='2')
-        w2 = workout(id='13', fname='Srihita', uid='srihita', lname='Kotturi', workouttype='running', date=date(2006, 5, 16), duration='1')
-        w3 = workout(id='8', fname='Chandram', uid='chandram', lname='Kotturi', workouttype='walking', date=date(2006, 5, 16), duration='3')
-        w4 = workout(id='23', fname='Lalitha', uid='lalitha', lname='Chittila', workouttype='walking', date=date(2006, 5, 16), duration='1')
-        w5 = workout(id='38', fname='Shashank', uid='shashank', lname='Mahavrathajula', workouttype='Basketball', date=date(2006, 5, 16), duration='4')
+        w1 = workout(id='12', first='Sumedh', uid='sumedh', last='Kotturi', workouttype='swimming', date=date(2006, 5, 16), duration='2')
+        w2 = workout(id='13', first='Srihita', uid='srihita', last='Kotturi', workouttype='running', date=date(2006, 5, 16), duration='1')
+        w3 = workout(id='8', first='Chandram', uid='chandram', last='Kotturi', workouttype='walking', date=date(2006, 5, 16), duration='3')
+        w4 = workout(id='23', first='Lalitha', uid='lalitha', last='Chittila', workouttype='walking', date=date(2006, 5, 16), duration='1')
+        w5 = workout(id='38', first='Shashank', uid='shashank', last='Mahavrathajula', workouttype='Basketball', date=date(2006, 5, 16), duration='4')
 
         Workouts = [w1, w2, w3, w4, w5]
 

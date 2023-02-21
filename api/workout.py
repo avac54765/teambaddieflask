@@ -18,12 +18,12 @@ class workoutAPI:
             
             ''' Avoid garbage in, error checking '''
             # validate name
-            fname = body.get('fname')
-            if fname is None or len(fname) < 2:
+            first = body.get('first')
+            if first is None or len(first) < 2:
                 return {'message': f'Name is missing, or is less than 2 characters'}, 211
             # validate uid
-            lname = body.get('lname')
-            if lname is None or len(lname) < 2:
+            last = body.get('last')
+            if last is None or len(last) < 2:
                 return {'message': f'Name is missing, or is less than 2 characters'}, 212
             # validate uid
             id = body.get('id')
@@ -34,7 +34,7 @@ class workoutAPI:
             date = body.get('date')
             workouttype = body.get('workouttype')
             if workouttype is None or len(workouttype) > 1:
-                return {'message': f'grade is missing, or is not a single letter'}, 215
+                return {'message': f'workouttype is missing, or is not a single letter'}, 215
              # uid = body.get('uid')
             uid = str(datetime.now())
             if uid is None or len(uid) < 2:
@@ -43,8 +43,8 @@ class workoutAPI:
             from model.workouts import workout
             uo = workout(id=id, 
                       uid=uid,
-                      fname=fname,
-                      lname=lname,
+                      first=first,
+                      last=last,
                       date=date,
                       duration=duration,
                       workouttype=workouttype)
@@ -59,7 +59,7 @@ class workoutAPI:
             if workout:
                 return jsonify(workout.read())
             # failure returns error
-            return {'message': f'Processed {fname}, either a format error or User ID {uid} is duplicate'}, 217
+            return {'message': f'Processed {first}, either a format error or User ID {uid} is duplicate'}, 217
 
     class _Read(Resource):
         def get(self):
