@@ -18,12 +18,12 @@ class workoutAPI:
             
             ''' Avoid garbage in, error checking '''
             # validate name
-            first = body.get('first')
-            if first is None or len(first) < 2:
+            fname = body.get('fname')
+            if fname is None or len(fname) < 2:
                 return {'message': f'Name is missing, or is less than 2 characters'}, 211
             # validate uid
-            last = body.get('last')
-            if last is None or len(last) < 2:
+            lname = body.get('lname')
+            if lname is None or len(lname) < 2:
                 return {'message': f'Name is missing, or is less than 2 characters'}, 212
             # validate uid
             id = body.get('id')
@@ -43,8 +43,8 @@ class workoutAPI:
             from model.workouts import workout
             uo = workout(id=id, 
                       uid=uid,
-                      first=first,
-                      last=last,
+                      fname=fname,
+                      lname=lname,
                       date=date,
                       duration=duration,
                       workouttype=workouttype)
@@ -59,7 +59,7 @@ class workoutAPI:
             if workout:
                 return jsonify(workout.read())
             # failure returns error
-            return {'message': f'Processed {first}, either a format error or User ID {uid} is duplicate'}, 217
+            return {'message': f'Processed {fname}, either a format error or User ID {uid} is duplicate'}, 217
 
     class _Read(Resource):
         def get(self):
