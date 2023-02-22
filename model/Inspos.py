@@ -136,7 +136,6 @@ class Inspo(db.Model):
 def initInspos():
     with app.app_context():
         """Create database and tables"""
-        db.init_app(app)
         db.create_all()
         """Tester data for table"""
         i1 = Inspo(id='2', uid='alexa2', quote= 'You are strong')
