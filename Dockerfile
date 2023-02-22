@@ -6,7 +6,6 @@ WORKDIR /
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y python3 python3-pip git
 COPY . /app
-WORKDIR /main
 
 RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install gunicorn
