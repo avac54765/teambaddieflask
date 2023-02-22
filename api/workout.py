@@ -37,7 +37,7 @@ class workoutAPI:
                 return {'message': f'Duration is missing, or is not an integer'}, 214
             date = body.get('date')
             workouttype = body.get('workouttype')
-            if workouttype is None or len(workouttype) > 1:
+            if workouttype is None or len(workouttype) < 1:
                 return {'message': f'workouttype is missing, or is not a single letter'}, 215
              # uid = body.get('uid')
             uid = str(datetime.now())
