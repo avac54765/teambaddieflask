@@ -172,7 +172,6 @@ class ISPE(db.Model):
 def initISPEs():
     with app.app_context():
         """Create database and tables"""
-        db.init_app(app)
         db.create_all()
         """Tester data for table"""
         i1 = ISPE(id='33', name2='Alexa Carlson', uid='alexa', duration2='2', date2=date(2006, 5, 16), grade='A')
