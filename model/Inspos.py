@@ -73,12 +73,12 @@ class Inspo(db.Model):
     #def id(self, id):
      #   self._id = id
     
-    # a getter method, extracts email from object
+    # a getter method, extracts quote from object
     @property
     def quote(self):
         return self._quote
     
-    # a setter function, allows name to be updated after initial object creation
+    # a setter function, allows quote to be updated after initial object creation
     @quote.setter
     def quote(self, quote):
         self._quote = quote
@@ -110,7 +110,7 @@ class Inspo(db.Model):
             "quote": self.quote
         }
 
-    # CRUD update: updates user name, password, phone
+    # CRUD update: updates user uid and quote
     # returns self
     def update(self, uid='', quote=""):
         """only updates values with length"""

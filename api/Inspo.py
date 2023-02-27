@@ -18,7 +18,7 @@ class InspoAPI:
             body = request.get_json()
             
             ''' Avoid garbage in, error checking '''
-            # validate name
+            # validate quote
             quote = body.get('quote')
             if quote is None or len(quote) < 2:
                 return {'message': f'Quote is missing, or is less than 2 characters'}, 210
@@ -41,10 +41,10 @@ class InspoAPI:
                #q.set_quote(quote)
             
             ''' #2: Key Code block to add user to database '''
-            # create user in database
+            # create quote in database
             quote = uo.create()
 
-            # success returns json of user
+            # success returns json of quote
             if quote:
                 return jsonify(quote.read())
             # failure returns error
@@ -52,7 +52,7 @@ class InspoAPI:
 
     class _Read(Resource):
         def get(self):
-            quotes = Inspo.query.all()    # read/extract all users from database
+            quotes = Inspo.query.all()    # read/extract all quotes from database
             json_ready = [quote.read() for quote in quotes]  # prepare output in json
             return jsonify(json_ready)  # jsonify creates Flask response object, more specific to APIs than json.dumps
 
