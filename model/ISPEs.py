@@ -13,7 +13,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 ### ISPE
 
-# Define the ISPE class to manage actions in 'ISPE' table,  with a relationship to 'users' table
+# Define the ISPE class to manage actions in 'ISPE' table
 class ISPE(db.Model):
     __tablename__ = 'ISPE'
 
@@ -39,7 +39,7 @@ class ISPE(db.Model):
         self._grade = grade
     
         # FOR ISPE PAGE:
-    # a getter method, extracts email from object
+    # a getter method
     @property
     def uid(self):
         return self._uid
@@ -57,12 +57,12 @@ class ISPE(db.Model):
     #def id(self):
        # return self._id
     
-    # a setter function, allows name to be updated after initial object creation
+    # a setter function, allows id to be updated after initial object creation
     #@id.setter
     #def id(self, id):
        # self._id = id
     
-     # a getter method, extracts email from object
+     # a getter method
     @property
     def name2(self):
         return self._name2
@@ -72,32 +72,32 @@ class ISPE(db.Model):
     def name2(self, name2):
         self._name2 = name2
 
-     # a getter method, extracts email from object
+     # a getter method
     @property
     def duration2(self):
         return self._duration2
     
-    # a setter function, allows name to be updated after initial object creation
+    # a setter function, allows duration to be updated after initial object creation
     @duration2.setter
     def duration2(self, duration2):
         self._duration2 = duration2
     
-     # a getter method, extracts email from object
+     # a getter method
     @property
     def date2(self):
         return self._date2
     
-    # a setter function, allows name to be updated after initial object creation
+    # a setter function, allows date to be updated after initial object creation
     @date2.setter
     def date2(self, date2):
         self._date2 = date2
     
-     # a getter method, extracts email from object
+     # a getter method
     @property
     def grade(self):
         return self._grade
     
-    # a setter function, allows name to be updated after initial object creation
+    # a setter function, allows grade to be updated after initial object creation
     @grade.setter
     def grade(self, grade):
         self._grade = grade
