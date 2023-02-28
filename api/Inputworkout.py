@@ -53,6 +53,7 @@ class InputworkoutAPI:
             # failure returns error
             return {'message': f'Processed {exerciseType}, a format error or User ID {uid} is duplicate'}, 215
     
+
     class _Read(Resource):
         def get(self):
             Inputworkouts = Inputworkout.query.all()    # read/extract all users from database
