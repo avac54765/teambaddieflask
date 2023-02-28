@@ -22,6 +22,10 @@ class InspoAPI:
             quote = body.get('quote')
             if quote is None or len(quote) < 2:
                 return {'message': f'Quote is missing, or is less than 2 characters'}, 210
+            # databaseread = Inspo.query.all()
+            #if quote == quote in Inspo:
+                #return {'message': f'Quote already exists'}, 111
+
             # validate uid
            # uid = body.get('uid')
              # uid = body.get('uid')
