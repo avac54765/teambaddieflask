@@ -31,8 +31,8 @@ class ISPEAPI:
                 return {'message': f'Duration is missing, or is not an integer'}, 212
             date2 = body.get('date2')
             grade = body.get('grade')
-            if duration2 is None or len(grade) > 2:
-                return {'message': f'grade is missing, or is not a single letter'}, 213
+            # if duration2 is None or len(grade) > 2:
+            #  return {'message': f'grade is missing, or is not a single letter'}, 213
             # uid = body.get('uid')
             uid = str(datetime.now()) # temporary UID that is unique to fill garbage data
             if uid is None or len(uid) < 2:

@@ -20,8 +20,8 @@ class Inputworkout(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     _uid = db.Column(db.String(255), unique=True, nullable=False)
     _exerciseType = db.Column(db.Text, unique=False, nullable=False)
-    _sets = db.Column(db.Text, unique=False, nullable=False)
-    _reps = db.Column(db.Text, unique=False, nullable=False)
+    _sets = db.Column(db.Integer, unique=False, nullable=False)
+    _reps = db.Column(db.Integer, unique=False, nullable=False)
 
     
     # Define a relationship in Notes Schema to userID who originates the note, many-to-one (many notes to one user)
