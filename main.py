@@ -4,7 +4,7 @@ import threading
 from flask import render_template  # import render_template from "public" flask libraries
 
 # import "packages" from "this" project
-from __init__ import app  # Definitions initialization
+from __init__ import app, db  # Definitions initialization
 from model.jokes import initJokes
 from model.Inspos import initInspos
 from model.ISPEs import initISPEs
@@ -46,29 +46,22 @@ def stub():
 
 @app.before_first_request
 def activate_job():
+    db.init_app(app)
     initJokes()
     initInspos()
     initISPEs()
     initInputworkouts()
     initworkouts()
 
-# this runs the application on the development server
-#if __name__ == "__main__":
-    # change name for testing
-    #from flask_cors import CORS
-    #cors = CORS(app)
-    #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///volumes/sqlite.db'
-    #app.run(debug=True, host="0.0.0.0", port="8086")
-
-@app.after_request
-def after_request(response):
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    response.headers.add('Access-Control-Allow-Headers', 'Content-Type, Authorization')
-    response.headers.add('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH')
-    return response
+#@app.after_request
+#def after_request(response):
+    #response.headers.add('Access-Control-Allow-Origin', '*')
+    #response.headers.add('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+    #response.headers.add('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH')
+    #return response
 
 if __name__ == "__main__":
     # change name for testing
-   # from flask_cors import CORS
-   # cors = CORS(app)
-    app.run(debug=True, host="0.0.0.0", port="8086")
+    from flask_cors import CORS
+    cors = CORS(app)
+    app.run(debug=True, host="0.0.0.0", port="8081")
