@@ -20,8 +20,5 @@ def walruses():
 
 @app_projects.route('/hawkers/')
 def hawkers():
-    return render_template("home.html")
+    return render_template("hawkers.html")
 
-@app_projects.route('/idk')
-def MYlogin():
-    return render_template("home.html")
