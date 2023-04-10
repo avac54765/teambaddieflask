@@ -7,7 +7,6 @@ from model.ISPEs import ISPE
 ISPE_api = Blueprint('ISPE_api', __name__,
                    url_prefix='/api/ISPE')
 
-# API docs https://flask-restful.readthedocs.io/en/latest/api.html
 
 api = Api(ISPE_api)
 
@@ -31,9 +30,6 @@ class ISPEAPI:
                 return {'message': f'Duration is missing, or is not an integer'}, 212
             date2 = body.get('date2')
             grade = body.get('grade')
-            # if duration2 is None or len(grade) > 2:
-            #  return {'message': f'grade is missing, or is not a single letter'}, 213
-            # uid = body.get('uid')
             uid = str(datetime.now()) # temporary UID that is unique to fill garbage data
             if uid is None or len(uid) < 2:
                 return {'message': f'User ID is missing, or is less than 2 characters'}, 214
