@@ -23,7 +23,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 class Inspo(db.Model):
     __tablename__ = 'Inspo_data'  # table name is plural, class name is singular
 
-    # Define the User schema with "vars" from object
+    # Define the Quotes schema with "vars" from object
     
     # Define the Notes schema
     # id = db.Column(db.Integer, primary_key=True)
@@ -31,11 +31,7 @@ class Inspo(db.Model):
     _uid = db.Column(db.String(255), unique=True, nullable=False)
     _quote = db.Column(db.String, unique=False, nullable=False)
     
-    # userID = db.Column(db.Integer, db.ForeignKey('users.id'))
-
     
-    # Define a relationship in Notes Schema to userID who originates the note, many-to-one (many notes to one user)
-    # userID = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     # Constructor of a Notes object, initializes of instance variables within object
     def __init__(self, id, uid, quote):
@@ -43,7 +39,7 @@ class Inspo(db.Model):
         self._uid = uid
         self._quote = quote
 
-    # Defines a relationship between User record and Notes table, one-to-many (one user to many notes)
+
     # workouts = db.relationship("workouts", cascade='all, delete', backref='users', lazy=True)
     # inspo = db.relationship("inspo", cascade='all, delete', backref='users', lazy=True)
     # ISPE = db.relationship("ISPE", cascade='all, delete', backref='users', lazy=True)
