@@ -15,35 +15,25 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 ### INSPO DATABASE
 
-# Define the User class to manage actions in the 'users' table
-# -- Object Relational Mapping (ORM) is the key concept of SQLAlchemy
-# -- a.) db.Model is like an inner layer of the onion in ORM
-# -- b.) User represents data we want to store, something that is built on db.Model
-# -- c.) SQLAlchemy ORM is layer on top of SQLAlchemy Core, then SQLAlchemy engine, SQL
+# Defining Inspo class for Inspo_data table with quotes 
+
 class Inspo(db.Model):
     __tablename__ = 'Inspo_data'  # table name is plural, class name is singular
 
-    # Define the Quotes schema with "vars" from object
-    
-    # Define the Notes schema
-    # id = db.Column(db.Integer, primary_key=True)
+    # definining schema
     id = db.Column(db.Integer, primary_key=True)
     _uid = db.Column(db.String(255), unique=True, nullable=False)
     _quote = db.Column(db.String, unique=False, nullable=False)
     
     
 
-    # Constructor of a Notes object, initializes of instance variables within object
+    # initializes variables within object
     def __init__(self, id, uid, quote):
         self.userID = id
         self._uid = uid
         self._quote = quote
 
 
-    # workouts = db.relationship("workouts", cascade='all, delete', backref='users', lazy=True)
-    # inspo = db.relationship("inspo", cascade='all, delete', backref='users', lazy=True)
-    # ISPE = db.relationship("ISPE", cascade='all, delete', backref='users', lazy=True)
-    # InputWork = db.relationship("InputWork", cascade='all, delete', backref='users', lazy=True)
 
      # FOR INSPO PAGE:
 
@@ -51,84 +41,53 @@ class Inspo(db.Model):
     def uid(self):
         return self._uid
     
-    # a setter function, allows name to be updated after initial object creation
+    # a setter function for object
     @uid.setter
     def uid(self, uid):
         self._uid = uid
         
-    # check if uid parameter matches user id in object, return boolean
     def is_uid(self, uid):
         return self._uid == uid
-     # a getter method, extracts email from object
-   # @property
-    #def id(self):
-     #   return self._id
+
     
-    # a setter function, allows name to be updated after initial object creation
-   # @id.setter
-    #def id(self, id):
-     #   self._id = id
-    
-    # a getter method, extracts quote from object
+    # getter method, extracts quote from object
     @property
     def quote(self):
         return self._quote
     
-    # a setter function, allows quote to be updated after initial object creation
+    # a setter function for updating quotes
     @quote.setter
     def quote(self, quote):
         self._quote = quote
     
-    # output content using str(object) in human readable form, uses getter
-    # output content using json dumps, this is ready for API response
+   
+    # preparing for API
     def __str__(self):
         return json.dumps(self.read())
 
-    # CRUD create/add a new record to the table
-    # returns self or None on error
+    # Creating a new quote
     def create(self):
         try:
-            # creates a person object from User(db.Model) class, passes initializers
-            db.session.add(self)  # add prepares to persist person object to Users table
-            db.session.commit()  # SqlAlchemy "unit of work pattern" requires a manual commit
+            db.session.add(self) 
+            db.session.commit()  
             return self
         except IntegrityError:
             db.session.remove()
             return None
 
-    # CRUD read converts self to dictionary
     # returns dictionary
     def read(self):
         return {
             "id": self.id,
             "uid": self.uid,
-            # "userID": self.userID,
             "quote": self.quote
         }
-
-    # CRUD update: updates user uid and quote
-    # returns self
-    def update(self, uid='', quote=""):
-        """only updates values with length"""
-        if len(uid) > 0:
-            self.uid = uid
-        if len(quote) > 0:
-            self.quote = quote
-        db.session.commit()
-        return self
-
-    # CRUD delete: remove self
-    # None
-    def delete(self):
-        db.session.delete(self)
-        db.session.commit()
-        return None
 
 
 """Database Creation and Testing """
 
 
-# Builds working data for testing
+# data for testing
 def initInspos():
     with app.app_context():
         """Create database and tables"""
